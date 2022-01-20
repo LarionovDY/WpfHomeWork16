@@ -1,0 +1,43 @@
+﻿<Window x:Class="WpfHomeWork16_2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfHomeWork16_2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="300">
+    <Window.Resources>
+        <PathGeometry x:Key="path">
+            <PathFigure StartPoint="250,150" IsClosed="True">
+                <ArcSegment Size="100,100" Point="250,149" IsLargeArc="True" SweepDirection="Clockwise"/>
+            </PathFigure>
+        </PathGeometry>
+    </Window.Resources>
+    <Canvas>
+        <Ellipse Height="29.834" Canvas.Left="131.666" Stroke="Black" Canvas.Top="270.583" Width="29.834" StrokeThickness="0">
+            <Ellipse.Fill>
+                <RadialGradientBrush GradientOrigin="0.733,0.305">
+                    <GradientStop Color="White"/>
+                    <GradientStop Color="#FFCF2B2B" Offset="0.874"/>
+                </RadialGradientBrush>
+            </Ellipse.Fill>
+        </Ellipse>
+        <Path Stroke="#FF75CF61" Canvas.Left="134.236" Data="M5.8746557,0.5 L5.8817348,0.6770997 C6.287941,8.2946086 12.91403,14.352203 21.0285,14.352203 21.290257,14.352203 21.550465,14.345899 21.808966,14.333444 L22.026985,14.32031 21.959066,14.41687 C19.896929,17.273864 17.395287,19.8582 14.669098,21.821903 L14.623335,21.854284 14.361628,21.83852 C7.3009334,21.327821 1.5916668,16.221378 0.53684294,9.6590075 L0.5,9.4087176 0.51814508,9.3630996 C1.7388234,6.3607078 3.5395355,3.3602405 5.7193351,0.68698454 z" Height="22.354" RenderTransformOrigin="0.689330627218745,0.333869803957772" Stretch="Fill" Canvas.Top="280" Width="22.528" StrokeThickness="0">
+            <Path.Fill>
+                <LinearGradientBrush EndPoint="0.334,0.919" StartPoint="1.143,-0.654">
+                    <GradientStop Color="White" Offset="0.353"/>
+                    <GradientStop Color="#FF75CF61" Offset="1"/>
+                </LinearGradientBrush>
+            </Path.Fill>
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="31.747"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="-1.234"/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+    </Canvas>
+</Window>
