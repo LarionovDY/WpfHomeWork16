@@ -6,57 +6,59 @@
         xmlns:local="clr-namespace:WpfHomeWork16_2"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="200">
-    <Window.Resources>
-        <PathGeometry x:Key="path1">
-            <PathFigure StartPoint="70,260">
-                <LineSegment Point="70,10"/>
-            </PathFigure>
-        </PathGeometry>
-        <PathGeometry x:Key="path2">
-            <PathFigure StartPoint="70,10">
-                <LineSegment Point="70,260"/>
-            </PathFigure>
-        </PathGeometry>
-    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Window.Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation 
+                        Storyboard.TargetProperty="(Canvas.Top)"
+                        Storyboard.TargetName="ball"
+                        From="240"
+                        To="20"                                
+                        Duration="0:0:2"
+                        RepeatBehavior="Forever"
+                        DecelerationRatio="1"
+                        AutoReverse="True">
+                    </DoubleAnimation>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Window.Triggers>
     <Canvas>
-        <Ellipse Height="50" Width="50" Canvas.Left="70" Canvas.Top="260" StrokeThickness="0">
+        <Rectangle Height="224.572" Canvas.Top="-3.021" Width="192">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="White" Offset="1"/>
+                    <GradientStop Color="#FF87F9F9"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Height="97.449" Canvas.Top="221.551" Width="192" StrokeThickness="0">
+            <Rectangle.Fill>
+                <RadialGradientBrush>
+                    <GradientStop Color="#FF72E496" Offset="0.013"/>
+                    <GradientStop Color="#FF5AD81F" Offset="1"/>
+                </RadialGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Path Data="M64.247694,291.18182 C64.247694,291.18182 72.086652,293.94844 93.759907,290.72051 115.43316,287.49258 120.96716,289.33697 124.65625,292.56452" Height="3.531" Canvas.Left="64.248" Stretch="Fill" Canvas.Top="289.034" Width="60.408" Stroke="#FF2B5717"/>
+        <Ellipse Height="45.653" Canvas.Left="29.368" Canvas.Top="24.756" Width="45.653">
+            <Ellipse.Fill>
+                <RadialGradientBrush>
+                    <GradientStop Color="#FFE0CB6E" Offset="1"/>
+                    <GradientStop Color="#FFDCB52E" Offset="0.201"/>
+                </RadialGradientBrush>
+            </Ellipse.Fill>
+        </Ellipse>
+        <Path Data="M20.479584,65.649108 C20.479584,65.649108 7.0675737,81.366079 25.051763,92.894406 43.035953,104.42273 36.118873,87.821665 53.18045,95.660739 70.242027,103.49981 74.393328,97.966616 84.077066,92.894164 93.760804,87.821712 107.13364,94.738519 114.51175,90.127272 121.88985,85.516025 128.34574,73.065568 117.73963,67.070947 107.13353,61.076325 97.449899,63.381925 92.377433,66.60982 87.304967,69.837714 74.393333,65.226423 66.554068,67.070944 58.714803,68.915465 49.745796,69.517999&#xD;&#xA;45.380696,65.649137 36.579933,57.848873 20.479584,65.649108 20.479584,65.649108 z" Height="37.392" Canvas.Left="17.004" Stretch="Fill" Canvas.Top="53.42" Width="107.652" Fill="#FFF9F9F9"/>
+        <Path Data="M35.229685,76.755892 C35.229685,76.755892 15.611707,88.526723 36.61336,92.433637 56.441697,96.12228 40.301893,87.822518 66.586903,91.972517 85.13344,94.900729 74.887451,88.744845 84.571189,83.672393 94.254927,78.599941 94.71623,85.516829 102.09434,80.905582 109.47244,76.294335 117.31168,75.833362 106.70557,69.838741 96.099467,63.844119 86.87683,65.688826 81.804364,68.916721 76.731898,72.144615 74.393333,65.226423 66.554068,67.070944 58.714803,68.915465 60.434099,70.803652&#xD;&#xA;55.058285,73.067016 46.296678,76.755892 35.229685,76.755892 35.229685,76.755892 z" Height="27.496" Canvas.Left="95.582" Stretch="Fill" Canvas.Top="103.261" Width="84.967" Fill="#FFF9F9F9"/>
+        <Ellipse x:Name="ball" Height="50" Width="50" Canvas.Left="70" Canvas.Top="240" StrokeThickness="0">
             <Ellipse.Fill>
                 <RadialGradientBrush GradientOrigin="0.733,0.305">
                     <GradientStop Color="White"/>
                     <GradientStop Color="#FFCF2B2B" Offset="0.874"/>
                 </RadialGradientBrush>
             </Ellipse.Fill>
-            <Ellipse.Triggers>
-                <EventTrigger RoutedEvent="Window.Loaded">
-                    <BeginStoryboard>
-                        <Storyboard>
-                            <DoubleAnimationUsingKeyFrames 
-                                Storyboard.TargetProperty="(Canvas.Top)"
-                                Duration="0:0:4"                                
-                                DecelerationRatio="1"
-                                FillBehavior="Stop"
-                                x:Name="anim1">
-                                <LinearDoubleKeyFrame KeyTime="0%" Value="260"/>
-                                <LinearDoubleKeyFrame KeyTime="100%" Value="20"/>                                
-                            </DoubleAnimationUsingKeyFrames>                            
-                        </Storyboard>
-                    </BeginStoryboard>                     
-                </EventTrigger>
-                <EventTrigger RoutedEvent="anim1.Completed">
-                    <BeginStoryboard>
-                        <Storyboard x:Name="stbd2">
-                            <DoubleAnimationUsingKeyFrames 
-                                Storyboard.TargetProperty="(Canvas.Top)"
-                                Duration="0:0:4"                                
-                                AccelerationRatio="1"
-                                FillBehavior="Stop">
-                                <LinearDoubleKeyFrame KeyTime="0%" Value="20"/>
-                                <LinearDoubleKeyFrame KeyTime="100%" Value="260"/>
-                            </DoubleAnimationUsingKeyFrames>
-                        </Storyboard>
-                    </BeginStoryboard>
-                </EventTrigger>
-            </Ellipse.Triggers>
         </Ellipse>
     </Canvas>
 </Window>
